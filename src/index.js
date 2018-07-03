@@ -5,11 +5,11 @@ import HeroImage from './HeroImage';
 
 ReactDOM.render(
 	<HeroImage
-		color="#f7f7f7"
+		color="rgba(200,20,200,0.5)"
 		imageSrc="https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg"
 		height="100vh"
 		parallax
-		opacity="0.8"
+		opacity="0.5"
 	>
 		<h1>Yooooo</h1>
 		<h2>DFAAFSGAAAVFVFAV</h2>
