@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 
-import generateBackgroundGradient from './utils/generateBackgroundGradient';
+import generateBgGradient from './utils/generateBgGradient';
 
-// TODO: Make positioning of content dynamic (i.e. 'center', 'left', 'right', 'bottom')
-// TODO: Support for different gradient styles and directions
 // TODO: Animation for content
 // TODO: Animation for image
 // TODO: Support for named color props: https://stackoverflow.com/questions/1573053/javascript-function-to-convert-color-names-to-hex-codes
@@ -16,7 +14,9 @@ export default class HeroImage extends Component {
 		return (
 			<Fragment>
 				<HeroImageWrapper {...this.props}>
-					<ChildrenWrapper>{this.props.children}</ChildrenWrapper>
+					<ChildrenWrapper style={{ ...this.props.childrenStyles }}>
+						{this.props.children}
+					</ChildrenWrapper>
 				</HeroImageWrapper>
 				<div>
 					<p>
@@ -98,27 +98,40 @@ export default class HeroImage extends Component {
 }
 
 const HeroImageWrapper = styled.div`
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	text-align: center;
-	position: relative;
-	height: ${props => props.height}; /* Get the height from our props */
-	width: 100vw;
-	/* 
-		We stitch together our background-image property by generating a gradient (util function) 
-		and getting the image source URL from props 
-	*/
-	background-image: ${props =>
-			generateBackgroundGradient(props.color, props.opacity)},
-		url(${props => props.imageSrc});
-	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-attachment: ${props =>
-		props.parallax
-			? 'fixed'
-			: 'scroll'}; /* Determine parallax behavior based on our props */
+	background-size: cover;
+	display: flex;
+	position: relative;
+	text-align: center;
+	width: 100vw;
+	height: ${props => props.height};
+
+	/* Determine parallax behavior based on our 'parallax' prop */
+	background-attachment: ${props => (props.parallax ? 'fixed' : 'scroll')};
+
+	/* Dynamically set this property based on our 'textPosition' prop */
+	justify-content: ${props => {
+		switch (props.textPosition) {
+			case 'center':
+				return 'center';
+			case 'left':
+				return 'flex-start';
+			case 'right':
+				return 'flex-end';
+			default:
+				return 'center';
+		}
+	}};
+
+	/* 
+		We stitch together our background-image property by generating a gradient (util function) 
+		and getting the 'imageSrc' prop value 
+	*/
+	background-image: ${props =>
+			generateBgGradient(props.gradientDirection, props.color, props.opacity)},
+		url(${props => props.imageSrc});
 `;
 
 const ChildrenWrapper = styled.div``;
