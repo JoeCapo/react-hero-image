@@ -5,9 +5,9 @@ import HeroImage from './HeroImage';
 
 ReactDOM.render(
 	<HeroImage
+		imageSrc="https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg"
 		color="#555555"
 		gradientDirection="to bottom right"
-		imageSrc="https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg"
 		height="100vh"
 		opacity="0.8"
 		childrenStyles={{ color: '#f7f7f7' }}

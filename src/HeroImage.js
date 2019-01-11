@@ -3,12 +3,6 @@ import styled from 'styled-components';
 
 import generateBgGradient from './utils/generateBgGradient';
 
-// TODO: Animation for content
-// TODO: Animation for image
-// TODO: Support for named color props: https://stackoverflow.com/questions/1573053/javascript-function-to-convert-color-names-to-hex-codes
-// TODO: Supprt for HSL color props: https://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
-// TODO: Setup default props/prop validation
-
 export default class HeroImage extends Component {
 	render() {
 		return (
