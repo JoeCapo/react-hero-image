@@ -6,6 +6,8 @@ A React-based hero image component designed to give a website or project a hero 
 
 Currently, it is not available on NPM (please see TODO section).
 
+![alt text](example.jpg 'Example hero image component')
+
 ## Structure
 
 This project was bootstrapped with create-react-app, uses styled-components.
