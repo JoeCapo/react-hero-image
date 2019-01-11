@@ -1,12 +1,12 @@
 # React Hero Image Component
 
+![alt text](example.jpg 'Example hero image component')
+
 ## Summary/Motivation
 
 A React-based hero image component designed to give a website or project a hero image! This project was my first attempt at building and designing an API for a reusable React component.
 
 Currently, it is not available on NPM (please see TODO section).
-
-![alt text](example.jpg 'Example hero image component')
 
 ## Structure
 
